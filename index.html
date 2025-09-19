@@ -3,212 +3,64 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Recreation & Aquatics Portfolio</title>
-  <meta name="description" content="Municipal recreation & aquatics leader: strategic planning, cost recovery, community impact." />
-  <meta property="og:title" content="Your Name — Recreation & Aquatics Portfolio" />
-  <meta property="og:description" content="Municipal recreation & aquatics leader: strategic planning, cost recovery, community impact." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/og-image.jpg" />
-  <meta name="theme-color" content="#0ea5e9" />
+  <title>Sajjad Mia — Recreation Management Portfolio</title>
   <style>
     :root{
-      --bg: #0b1220; /* deep blue */
-      --card: #0f172a; /* slate-900 */
-      --muted: #94a3b8; /* slate-400 */
-      --text: #e2e8f0; /* slate-200 */
-      --accent: #38bdf8; /* sky-400 */
-      --accent-2: #22d3ee; /* cyan-400 */
-      --ring: rgba(56,189,248,.35);
+      --bg: #0b1220;
+      --text: #e2e8f0;
+      --accent: #38bdf8;
+      --accent-2: #22d3ee;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:radial-gradient(1200px 600px at 80% -10%, rgba(56,189,248,.12), transparent 60%), var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,'Noto Sans',sans-serif;line-height:1.5}
-    a{color:var(--accent)} a:hover{color:var(--accent-2)}
-    .container{max-width:1100px;margin:0 auto;padding:24px}
-    header{position:sticky;top:0;backdrop-filter: blur(8px);background:linear-gradient(to bottom, rgba(11,18,32,.85), rgba(11,18,32,.35));border-bottom:1px solid rgba(56,189,248,.15);z-index:50}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px}
-    .brand .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 24px var(--ring)}
-    .links{display:flex;gap:18px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:10px 14px;border-radius:14px;border:1px solid rgba(148,163,184,.25);background:linear-gradient(to bottom right, rgba(15,23,42,.8), rgba(15,23,42,.6));color:var(--text);text-decoration:none}
-    .btn:hover{border-color:rgba(56,189,248,.5);box-shadow:0 0 0 4px var(--ring)}
-    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#05121d;border-color:transparent;font-weight:700}
-    .grid{display:grid;gap:18px}
-    .hero{display:grid;gap:18px;padding:48px 0}
-    .hero h1{font-size:clamp(28px,4vw,42px);line-height:1.1;margin:0}
-    .muted{color:var(--muted)}
-    .tag{font-size:12px;border:1px solid rgba(148,163,184,.25);color:var(--muted);padding:4px 10px;border-radius:999px}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-    .card{background:linear-gradient(to bottom right, rgba(15,23,42,.8), rgba(15,23,42,.5));border:1px solid rgba(148,163,184,.2);border-radius:18px;padding:18px}
-    .card h3{margin:0 0 6px 0;font-size:18px}
-    .list{margin:0;padding-left:18px}
-    .list li{margin:6px 0}
-    section{padding:28px 0}
-    .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
-    .kpi{background:linear-gradient(180deg, rgba(34,211,238,.08), rgba(56,189,248,.05));border:1px solid rgba(56,189,248,.25);border-radius:16px;padding:14px}
-    .kpi .num{font-weight:800;font-size:22px}
-    footer{margin:36px 0 24px 0;border-top:1px dashed rgba(148,163,184,.25);padding-top:18px}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid rgba(148,163,184,.25)}
-    .badges{display:flex;gap:10px;flex-wrap:wrap}
-    code.inline{background:#0a1220;border:1px solid rgba(148,163,184,.2);padding:.2em .5em;border-radius:8px}
-    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-    .thumb{aspect-ratio:16/10;border-radius:14px;background:#0a1626;border:1px solid rgba(148,163,184,.2);display:flex;align-items:center;justify-content:center;color:var(--muted)}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:system-ui,Segoe UI,Roboto,sans-serif;color:var(--text)}
+    a{text-decoration:none}
+
+    /* Landing page */
+    .landing{
+      background:url('assets/landing-bg.jpg') center/cover no-repeat;
+      height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+    }
+    .signature{
+      font-size:2.5rem;font-family:'Brush Script MT',cursive;
+      margin-bottom:20px;text-shadow:0 2px 6px rgba(0,0,0,.6)
+    }
+    .enter-btn{
+      padding:14px 24px;font-size:1.1rem;border-radius:30px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#05121d;font-weight:bold;cursor:pointer;
+      box-shadow:0 4px 12px rgba(0,0,0,.4);border:none
+    }
+    .enter-btn:hover{opacity:.9}
+
+    main{display:none}
+    main.active{display:block}
+
+    .container{max-width:900px;margin:0 auto;padding:24px}
+    h1,h2{margin:16px 0}
+    p{margin:12px 0;color:#cbd5e1}
   </style>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Your Name",
-    "jobTitle":"Recreation & Aquatics Manager",
-    "url":"https://yourusername.github.io/",
-    "sameAs":["https://www.linkedin.com/in/your-profile"],
-    "worksFor":{"@type":"Organization","name":"City of ______"}
-  }
-  </script>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand"><span class="dot"></span> <span>Your Name</span></div>
-      <nav class="links" aria-label="Primary">
-        <a href="#about" class="btn">About</a>
-        <a href="#experience" class="btn">Experience</a>
-        <a href="#projects" class="btn">Projects</a>
-        <a href="#speaking" class="btn">Speaking</a>
-        <a href="#contact" class="btn primary">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Landing Page -->
+  <section class="landing" id="landing">
+    <div class="signature">Your Signature</div>
+    <button class="enter-btn" onclick="enterSite()">Enter</button>
+  </section>
 
-  <main class="container">
-    <section class="hero" id="home">
-      <span class="tag">Recreation Leadership • Aquatics Operations • Strategic Planning</span>
-      <h1>Driving community impact through data-informed recreation and aquatics leadership.</h1>
-      <p class="muted">Municipal manager experienced in budget stewardship, staff development, cost recovery, and large-scale events. TRAPS Leadership Academy alum; CPRP; CPO; LGI.</p>
-      <div class="links">
-        <a class="btn primary" href="./resume.pdf" download>Download Resume</a>
-        <a class="btn" href="#projects">View Projects</a>
-        <a class="btn" href="mailto:you@email.com">Email Me</a>
-        <a class="btn" href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-      <div class="kpis" aria-label="Key results">
-        <div class="kpi"><div class="num">$1.5M+</div><div class="muted">budgets administered</div></div>
-        <div class="kpi"><div class="num">60–100</div><div class="muted">seasonal & FT staff led</div></div>
-        <div class="kpi"><div class="num">10+ years</div><div class="muted">programming & ops</div></div>
-      </div>
-    </section>
-
-    <section id="about">
-      <h2>About</h2>
+  <!-- Main Content -->
+  <main id="site">
+    <section id="about" class="container">
+      <h1>About Me</h1>
       <p>My ‘why’ is growing the next generation through recreation. I build systems that elevate staff, deliver safe and memorable experiences, and strengthen cost recovery so agencies can reinvest in community programs.</p>
-      <div class="badges" aria-label="Certifications and skills">
-        <span class="pill">CPRP (NRPA)</span>
-        <span class="pill">CPO®</span>
-        <span class="pill">LGI</span>
-        <span class="pill">Project Management Foundations</span>
-        <span class="pill">Agile Foundations</span>
-      </div>
     </section>
-
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Aquatics Recreation Manager — City of Pasadena, TX</h3>
-          <p class="muted">Strawberry Water Park, Red Bluff Pool, Sunset Pool, splash pads; concessions & special events</p>
-          <ul class="list">
-            <li>Administered ~$1.5M annual budget; led 60–100 staff; managed facility operations and capital projects.</li>
-            <li>Launched brand initiatives (mascots, signage, concessions) to boost attendance and guest experience.</li>
-            <li>Drove data-informed staffing and pricing strategies supporting improved cost recovery.</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Interim Recreation Superintendent (acting)</h3>
-          <p class="muted">Department-wide strategic planning and reporting</p>
-          <ul class="list">
-            <li>Implemented Envisio for KPI tracking and project transparency between Parks & Recreation and City Hall.</li>
-            <li>Facilitated cross-division initiatives and special events; coordinated long-range work plans.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>Selected Projects</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Cost Recovery Framework</h3>
-          <p class="muted">Applied 110% methodology to align pricing with service tiers.</p>
-          <ul class="list">
-            <li>Segmented programs by benefit level; recommended pricing and subsidy mix.</li>
-            <li>Built dashboards to monitor margins and participation.</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Envisio Rollout</h3>
-          <p class="muted">Centralized KPIs, milestones, and reporting for leadership & council.</p>
-          <ul class="list">
-            <li>Standardized measures across divisions; improved update cadence and visibility.</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Water Park 10‑Year Anniversary</h3>
-          <p class="muted">Citywide activation with mascot reveal & interactive experiences.</p>
-          <ul class="list">
-            <li>Designed scavenger-hunt narrative, recognition moments, and sponsor tie-ins.</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Leadership Development Pipeline</h3>
-          <p class="muted">Manager in Training, in‑service design, team‑building strategy.</p>
-        </article>
-      </div>
-      <div class="gallery" aria-label="Visuals">
-        <div class="thumb">Project Image</div>
-        <div class="thumb">Dashboards</div>
-        <div class="thumb">Events</div>
-        <div class="thumb">Branding</div>
-      </div>
-    </section>
-
-    <section id="speaking">
-      <h2>Speaking & Writing</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>TRAPS Leadership Academy</h3>
-          <p class="muted">Capstone on emotional intelligence & Johari Window for team collaboration.</p>
-        </article>
-        <article class="card">
-          <h3>Articles & Features</h3>
-          <ul class="list">
-            <li>“Discovering Your Why” — 600‑char mailer feature (link)</li>
-            <li>Podcast host — Pasadena Parks & Rec (link)</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p class="muted">I’m open to Assistant Director / Superintendent opportunities and collaborations. Use the form or email me directly.</p>
-      <form action="https://formspree.io/f/xkgzkwdv" method="POST" class="card" style="max-width:720px">
-        <label class="sr-only" for="name">Name</label>
-        <input id="name" name="name" placeholder="Your name" required style="width:100%;margin:6px 0;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.25);background:#0a1626;color:var(--text)" />
-        <label class="sr-only" for="email">Email</label>
-        <input id="email" name="email" type="email" placeholder="Email" required style="width:100%;margin:6px 0;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.25);background:#0a1626;color:var(--text)" />
-        <label class="sr-only" for="message">Message</label>
-        <textarea id="message" name="message" placeholder="How can we collaborate?" required rows="5" style="width:100%;margin:6px 0;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.25);background:#0a1626;color:var(--text)"></textarea>
-        <button class="btn primary" type="submit">Send Message</button>
-      </form>
-    </section>
-
-    <footer>
-      <div class="muted">© <span id="y"></span> Your Name • Built with <span aria-label="heart">❤️</span> and GitHub Pages</div>
-    </footer>
+    <!-- Add Experience, Projects, Contact, etc. sections here -->
   </main>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    function enterSite(){
+      document.getElementById('landing').style.display='none';
+      document.getElementById('site').classList.add('active');
+    }
   </script>
 </body>
 </html>
