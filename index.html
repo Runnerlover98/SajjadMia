@@ -3,67 +3,237 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sajjad Mia — Recreation & Aquatics Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+  <title>Sajjad Mia — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg: #0b1220;
-      --text: #e2e8f0;
-      --accent: #38bdf8;
-      --accent-2: #22d3ee;
+      --bg: #0c0c0c; --text: #f3f3f3; --muted:#b8b8b8; --accent:#ffffff; --line:#2a2a2a; --pill:#ffffff10;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%;font-family:system-ui,Segoe UI,Roboto,sans-serif;color:var(--text)}
-    a{text-decoration:none}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg)}
+    a{color:var(--accent);text-decoration:none}
 
-    /* Landing page */
-    .landing{
-      background:url('assets/landing-bg.jpg') center/cover no-repeat;
-      height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
-    }
-    .signature{
-      font-size:3rem;
-      font-family:'Dancing Script', cursive;
-      margin-bottom:20px;
-      text-shadow:0 2px 6px rgba(0,0,0,.6)
-    }
-    .enter-btn{
-      padding:14px 24px;font-size:1.1rem;border-radius:30px;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      color:#05121d;font-weight:bold;cursor:pointer;
-      box-shadow:0 4px 12px rgba(0,0,0,.4);border:none
-    }
-    .enter-btn:hover{opacity:.9}
+    /* Full-screen landing */
+    .landing{position:relative;min-height:100vh;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;background:#000}
+    .landing::before{content:"";position:absolute;inset:0;z-index:-2;background:url("assets/landing-bg.jpg") center/cover no-repeat fixed;filter:brightness(.65)}
+    .landing::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 40% at 50% 60%, rgba(0,0,0,.2), rgba(0,0,0,.55))}
+    .landing-inner{padding:24px;display:flex;flex-direction:column;gap:28px;align-items:center;justify-content:center;animation: fadeIn 900ms ease forwards; opacity:0}
+    @keyframes fadeIn{to{opacity:1}}
+    .name{font-family:"Dancing Script", cursive;font-size:clamp(42px,7vw,80px);letter-spacing:.5px;text-shadow:0 6px 24px rgba(0,0,0,.6)}
+    .sub{color:var(--muted);font-size:clamp(13px,2.4vw,16px);letter-spacing:.12em;text-transform:uppercase}
+    .enter{display:inline-flex;align-items:center;gap:10px;font-size:clamp(14px,2.6vw,18px);padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.55);backdrop-filter:saturate(140%) blur(6px);background:rgba(255,255,255,.06);transition:transform .15s ease, background .2s ease, border-color .2s ease}
+    .enter:hover{transform:translateY(-2px);background:rgba(255,255,255,.1);border-color:#fff}
+    .chev{display:inline-block;transform:translateY(1px)}
 
+    /* Sticky minimal nav after entering */
+    header{position:sticky;top:0;z-index:5;backdrop-filter:blur(10px);background:rgba(12,12,12,.55);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{max-width:1100px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between}
+    .nav a{color:#eaeaea}
+    .nav-links{display:flex;gap:18px}
+    .brand{font-weight:600;letter-spacing:.04em}
+
+    main{scroll-behavior:smooth}
+    section{max-width:1000px;margin:0 auto;padding:56px 20px}
+    h1{font-size:clamp(28px,4.8vw,40px);margin:.2em 0}
+    p{color:#d7d7d7;line-height:1.7}
+
+    /* Hide main until entering */
     main{display:none}
     main.active{display:block}
+    .hide{display:none}
 
-    .container{max-width:900px;margin:0 auto;padding:24px}
-    h1,h2{margin:16px 0}
-    p{margin:12px 0;color:#cbd5e1}
+    /* Tabs */
+    .tabs{margin-top:22px;border-top:1px solid var(--line)}
+    .tablist{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:60px;z-index:4;background:rgba(12,12,12,.55);backdrop-filter:blur(8px);padding:10px 0;border-bottom:1px solid var(--line)}
+    .tab{appearance:none;border:1px solid var(--line);background:var(--pill);color:#eaeaea;padding:8px 14px;border-radius:999px;cursor:pointer}
+    .tab[aria-selected="true"]{border-color:#fff;color:#000;background:#fff;font-weight:600}
+    .tabpanel{display:none;padding:18px 2px}
+    .tabpanel.active{display:block}
+
+    /* Resume content helpers */
+    .resume-grid{display:grid;grid-template-columns:1fr;gap:16px}
+    @media (min-width: 800px){ .resume-grid{grid-template-columns: 1.2fr .8fr} }
+    .card{border:1px solid var(--line);border-radius:16px;padding:16px;background:linear-gradient(180deg, #0f0f10, #0d0d0d)}
+    .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+    .kpi{border:1px dashed var(--line);border-radius:12px;padding:12px;text-align:center}
+    .kpi .num{font-weight:800;font-size:20px}
+
+    ul{padding-left:18px}
+    li{margin:6px 0;color:#d7d7d7}
+
+    /* Simple link buttons */
+    .btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:var(--pill);color:#eaeaea}
+    .btn:hover{border-color:#fff}
   </style>
 </head>
 <body>
-  <!-- Landing Page -->
+  <!-- Minimal, immersive landing -->
   <section class="landing" id="landing">
-    <div class="signature">Sajjad Mia</div>
-    <button class="enter-btn" onclick="enterSite()">Enter</button>
+    <div class="landing-inner">
+      <div class="name">Sajjad Mia</div>
+      <div class="sub">recreation & aquatics • strategy • community impact</div>
+      <a href="#about" class="enter" id="enterBtn">enter <span class="chev">↘</span></a>
+    </div>
   </section>
 
-  <!-- Main Content -->
+  <!-- Site content (revealed after “enter”) -->
+  <header id="siteHeader" class="hide">
+    <nav class="nav" aria-label="Primary">
+      <div class="brand">SM</div>
+      <div class="nav-links">
+        <a href="#about">about</a>
+        <a href="#contact">contact</a>
+      </div>
+    </nav>
+  </header>
+
   <main id="site">
-    <section id="about" class="container">
-      <h1>About Me</h1>
-      <p>My ‘why’ is growing the next generation through recreation. I build systems that elevate staff, deliver safe and memorable experiences, and strengthen cost recovery so agencies can reinvest in community programs.</p>
+    <section id="about">
+      <h1>about me</h1>
+      <p>
+        I’m a municipal recreation and aquatics leader focused on building systems that elevate staff,
+        deliver safe, memorable guest experiences, and strengthen cost recovery so agencies can reinvest
+        in community programs. TRAPS Leadership Academy alum; CPRP; CPO; LGI.
+      </p>
+
+      <!-- Tabs: Resume / Projects / Speaking & Writing -->
+      <div class="tabs">
+        <div class="tablist" role="tablist" aria-label="About tabs">
+          <button class="tab" role="tab" id="tab-resume" aria-selected="true" aria-controls="panel-resume">Resume</button>
+          <button class="tab" role="tab" id="tab-projects" aria-selected="false" aria-controls="panel-projects">Projects</button>
+          <button class="tab" role="tab" id="tab-speaking" aria-selected="false" aria-controls="panel-speaking">Speaking & Writing</button>
+        </div>
+
+        <!-- Resume Panel -->
+        <div class="tabpanel active" role="tabpanel" id="panel-resume" aria-labelledby="tab-resume">
+          <div class="resume-grid">
+            <div class="card">
+              <h2>Experience</h2>
+              <ul>
+                <li><strong>Aquatics Recreation Manager — City of Pasadena, TX</strong><br/>Administered ~$1.5M budget; led 60–100 staff; managed Strawberry Water Park, Red Bluff, Sunset, splash pads; concessions & special events.</li>
+                <li><strong>Interim Recreation Superintendent (acting)</strong><br/>Implemented Envisio for KPI transparency; coordinated cross-division initiatives and reporting to City Hall.</li>
+              </ul>
+              <h3>Certifications</h3>
+              <ul>
+                <li>CPRP (NRPA)</li>
+                <li>CPO®, LGI</li>
+                <li>Project Management & Agile foundations</li>
+              </ul>
+              <p><a class="btn" href="./resume.pdf" download>Download PDF Resume</a></p>
+            </div>
+            <aside class="card">
+              <h2>Highlights</h2>
+              <div class="kpis">
+                <div class="kpi"><div class="num">$1.5M+</div><div>budgets</div></div>
+                <div class="kpi"><div class="num">60–100</div><div>staff led</div></div>
+                <div class="kpi"><div class="num">10+ yrs</div><div>ops</div></div>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <!-- Projects Panel -->
+        <div class="tabpanel" role="tabpanel" id="panel-projects" aria-labelledby="tab-projects">
+          <div class="card">
+            <h2>Projects</h2>
+            <ul>
+              <li><strong>Cost Recovery Framework</strong> — aligned pricing to benefit tiers using 110% methodology; dashboards for margins & participation.</li>
+              <li><strong>Envisio Rollout</strong> — centralized KPIs, milestones, council reporting cadence.</li>
+              <li><strong>Water Park 10‑Year Anniversary</strong> — citywide activation, mascot reveal, scavenger hunt narrative.</li>
+              <li><strong>Leadership Pipeline</strong> — Manager-in-Training, in‑service design, team‑building strategy.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Speaking & Writing Panel -->
+        <div class="tabpanel" role="tabpanel" id="panel-speaking" aria-labelledby="tab-speaking">
+          <div class="card">
+            <h2>Speaking & Writing</h2>
+            <ul>
+              <li><strong>TRAPS Leadership Academy</strong> — capstone on Emotional Intelligence & Johari Window for team collaboration.</li>
+              <li><strong>Podcast Host</strong> — Pasadena Parks & Rec show featuring community programs and staff stories.</li>
+              <li><strong>Mailer Feature</strong> — “Discovering Your Why” (600‑character piece) on equity, access, and teen development.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
-    <!-- Add Experience, Projects, Contact, etc. sections here -->
+
+    <section id="contact">
+      <h1>contact</h1>
+      <p>Open to Assistant Director / Superintendent opportunities and collaborations.</p>
+      <p><a href="mailto:you@email.com">you@email.com</a>
+         · <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a></p>
+      <!-- Optional Formspree form:
+      <form action="https://formspree.io/f/xkgzkwdv" method="POST">
+        <input name="name" placeholder="name" required>
+        <input type="email" name="email" placeholder="email" required>
+        <textarea name="message" placeholder="message" rows="5" required></textarea>
+        <button type="submit">send</button>
+      </form> -->
+    </section>
   </main>
 
   <script>
-    function enterSite(){
-      document.getElementById('landing').style.display='none';
-      document.getElementById('site').classList.add('active');
+    // Elements
+    const enter = document.getElementById('enterBtn');
+    const landing = document.getElementById('landing');
+    const site = document.getElementById('site');
+    const header = document.getElementById('siteHeader');
+
+    function revealSite() {
+      landing.style.display = 'none';
+      site.classList.add('active');
+      header.classList.remove('hide');
     }
+
+    // Tabs logic with ARIA
+    const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+    const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+
+    function activateTab(tab) {
+      tabs.forEach(t => { t.setAttribute('aria-selected','false'); t.tabIndex = -1; });
+      tab.setAttribute('aria-selected','true');
+      tab.tabIndex = 0; tab.focus();
+
+      panels.forEach(p => p.classList.remove('active'));
+      const panel = document.getElementById(tab.getAttribute('aria-controls'));
+      if (panel) panel.classList.add('active');
+
+      // update hash for deep-linking
+      const id = tab.id.replace('tab-','');
+      if (history.replaceState) history.replaceState(null, '', `#${id}`);
+      else location.hash = `#${id}`;
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => activateTab(tab));
+      tab.addEventListener('keydown', (e)=>{
+        const i = tabs.indexOf(tab);
+        if (e.key==='ArrowRight') activateTab(tabs[(i+1)%tabs.length]);
+        if (e.key==='ArrowLeft') activateTab(tabs[(i-1+tabs.length)%tabs.length]);
+      });
+    });
+
+    // Handle initial hash: #about (default), #resume, #projects, #speaking
+    function initFromHash(){
+      const h = (location.hash || '').toLowerCase();
+      if (h) revealSite();
+      if (h.includes('projects')) activateTab(document.getElementById('tab-projects'));
+      else if (h.includes('speaking')) activateTab(document.getElementById('tab-speaking'));
+      else activateTab(document.getElementById('tab-resume'));
+      // scroll to about
+      const target = document.querySelector('#about');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // If user opens with a hash, skip landing
+    if (window.location.hash) initFromHash();
+
+    // Enter click
+    enter.addEventListener('click', (e) => { revealSite(); initFromHash(); });
   </script>
 </body>
 </html>
+
