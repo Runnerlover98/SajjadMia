@@ -1,64 +1,143 @@
-<projects>
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Projects — Sajjad Mia</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects — Sajjad Mia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Light page-specific helpers (safe alongside style.css) */
+    .toc{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 18px}
+    .badge{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:var(--pill);color:#eaeaea;font-size:.9rem}
+    .meta{color:#d0d0d0;margin:8px 0 6px}
+    .card h3{margin:10px 0 6px}
+  </style>
 </head>
 <body>
-<header>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<div class="container nav">
-<div class="brand"><a href="index.html">SM</a></div>
-<nav class="nav-links" aria-label="Primary">
-<a href="about.html">About</a>
-<a href="resume.html">Resume</a>
-<a href="projects.html" class="active">Projects</a>
-<a href="speaking.html">Speaking &amp; Writing</a>
-<a href="contact.html">Contact</a>
-</nav>
-</div>
-</header>
+  <header>
+    <div class="container nav">
+      <div class="brand"><a href="index.html">SM</a></div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="about.html">About</a>
+        <a href="resume.html">Resume</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="speaking.html">Speaking &amp; Writing</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
+  <main class="container">
+    <section>
+      <h1>Selected Projects</h1>
 
-<main class="container">
-<section>
-<h1>Selected Projects</h1>
-<div class="card">
-<h2>Cost Recovery Framework</h2>
-<ul>
-<li>Aligned pricing to benefit tiers using 110% methodology; dashboards for margins & participation.</li>
-</ul>
-</div>
-<div class="card">
-<h2>Envisio Rollout</h2>
-<ul>
-<li>Centralized KPIs, milestones, council reporting cadence across divisions.</li>
-</ul>
-</div>
-<div class="card">
-<h2>Water Park 10‑Year Anniversary</h2>
-<ul>
-<li>Citywide activation, mascot reveal, scavenger hunt narrative, sponsor tie‑ins.</li>
-</ul>
-</div>
-<div class="card">
-<h2>Leadership Pipeline</h2>
-<ul>
-<li>Manager‑in‑Training pathway, in‑service design, team‑building strategy.</li>
-</ul>
-</div>
-</section>
-</main>
+      <!-- Quick in-page navigation -->
+      <div class="toc">
+        <a class="badge" href="#cost-recovery">Cost Recovery Study</a>
+        <a class="badge" href="#envisio">Envisio Rollout</a>
+        <a class="badge" href="#aquatics-master-plan">Aquatics Master Plan Study</a>
+        <a class="badge" href="#rec-center-feasibility">Recreation Center Feasibility Study</a>
+        <a class="badge" href="#magical-mile">Magical Mile Event</a>
+      </div>
 
+      <!-- Cost Recovery -->
+      <article id="cost-recovery" class="card">
+        <h2>Cost Recovery Study & Implementation</h2>
+        <p class="meta"><strong>Role:</strong> Lead partner / internal project lead • <strong>Focus:</strong> Service area, staff training, executive presentation, implementation plan</p>
+        <h3>What I did</h3>
+        <ul>
+          <li>Helped lead a comprehensive <strong>cost recovery study</strong> to determine the department’s <strong>service area</strong> and classify services by public vs. private benefit.</li>
+          <li><strong>Trained staff</strong> on the cost recovery model, translating policy into day-to-day pricing and programming decisions.</li>
+          <li><strong>Presented findings</strong> to local officials and stakeholders, aligning expectations across Council, leadership, and community partners.</li>
+          <li><strong>Designed the implementation plan</strong> with phasing, communications, and change-management steps for sustainable adoption.</li>
+        </ul>
+        <h3>Impact</h3>
+        <ul>
+          <li>Established a clear pricing philosophy tied to benefit tiers and equity goals.</li>
+          <li>Created a repeatable framework for annual fee review and budget planning.</li>
+        </ul>
+      </article>
 
-<footer>
-<div class="container">© <span id="y"></span> Sajjad Mia</div>
-</footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+      <!-- Envisio -->
+      <article id="envisio" class="card">
+        <h2>Envisio Rollout (Performance Management Platform)</h2>
+        <p class="meta"><strong>Role:</strong> Product owner / implementation lead • <strong>Focus:</strong> Vendor buildout, need identification, KPI centralization</p>
+        <h3>What I did</h3>
+        <ul>
+          <li><strong>Identified the need</strong> for a centralized system to manage KPIs, projects, and strategic updates across divisions.</li>
+          <li><strong>Led collaboration with the vendor</strong> to <strong>configure Envisio</strong>—structures, dashboards, roles/permissions, and update cadences.</li>
+          <li><strong>Standardized KPIs</strong> and project reporting, improving visibility and accountability for leadership and key stakeholders.</li>
+        </ul>
+        <h3>Impact</h3>
+        <ul>
+          <li><strong>Centralized KPI tracking</strong> and status reporting in one location.</li>
+          <li>Improved project communication with executives and City Hall through consistent, on-schedule updates.</li>
+        </ul>
+      </article>
+
+      <!-- Aquatics Master Plan -->
+      <article id="aquatics-master-plan" class="card">
+        <h2>Aquatics Master Plan Study</h2>
+        <p class="meta"><strong>Role:</strong> Project lead • <strong>Focus:</strong> Strategic need identification, operational efficiency, capital planning</p>
+        <h3>What I did</h3>
+        <ul>
+          <li><strong>Identified the need</strong> for a master plan to guide long-term aquatics strategy and investments.</li>
+          <li><strong>Focused on operational efficiency</strong>—staffing models, scheduling, maintenance practices, and guest experience improvements.</li>
+          <li><strong>Outlined future capital expenditures</strong> and prioritized projects to align with service levels and lifecycle needs.</li>
+        </ul>
+        <h3>Impact</h3>
+        <ul>
+          <li>Provided a roadmap for phased improvements tied to budget cycles.</li>
+          <li>Connected capital planning to measurable service outcomes.</li>
+        </ul>
+      </article>
+
+      <!-- Recreation Center Feasibility -->
+      <article id="rec-center-feasibility" class="card">
+        <h2>Recreation Center Feasibility Study</h2>
+        <p class="meta"><strong>Role:</strong> Project lead / stakeholder liaison • <strong>Focus:</strong> Community needs, facility assessment, engagement approach</p>
+        <h3>What I did</h3>
+        <ul>
+          <li><strong>Worked with key stakeholders</strong> to define community needs and program priorities.</li>
+          <li><strong>Assessed current facility conditions</strong> to understand gaps, risks, and opportunities.</li>
+          <li><strong>Helped develop the community engagement plan</strong> to validate expectations and test concepts.</li>
+        </ul>
+        <h3>Impact</h3>
+        <ul>
+          <li>Built consensus on scope, phasing, and funding considerations.</li>
+          <li>Established data-informed criteria for future decision-making.</li>
+        </ul>
+      </article>
+
+      <!-- Magical Mile -->
+      <article id="magical-mile" class="card">
+        <h2>Magical Mile Event</h2>
+        <p class="meta"><strong>Role:</strong> Program co-creator • <strong>Focus:</strong> Concept development, narrative design, creative activities, award submission</p>
+        <h3>What I did</h3>
+        <ul>
+          <li><strong>Identified the need</strong> for a new signature event and helped craft the <strong>program concept</strong>.</li>
+          <li><strong>Created the narrative and story</strong> arc that shaped theming, touchpoints, and on-site experience.</li>
+          <li><strong>Assisted with creative activities</strong> to drive family engagement and repeat visitation.</li>
+          <li>Program was recognized with the <strong>TRAPS Lone Star Programming Award</strong>.</li>
+        </ul>
+        <h3>Impact</h3>
+        <ul>
+          <li>Strengthened community engagement and brand visibility.</li>
+          <li>Delivered a replicable event model for future seasons.</li>
+        </ul>
+      </article>
+
+      <p style="margin-top:16px">
+        <a class="button" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y"></span> Sajjad Mia</div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
-</projects>
+
